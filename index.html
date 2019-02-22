@@ -1,0 +1,199 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>CV Maker | JS App</title>
+  
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
+
+  <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.1.3/css/bootstrap.min.css'>
+<link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+      <link rel="stylesheet" href="css/style.css">
+
+  
+</head>
+
+<body>
+
+  <nav class="navbar navbar-expand-lg navbar-light bg-light fixed-top">
+  <a class="navbar-brand" href="#">CV Maker</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">About</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1" >Feedback</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#" tabindex="-1" >Contact</a>
+      </li>
+    </ul>
+      <button class="btn btn-outline-primary my-2 my-sm-0"  id="buildCVbtn" data-toggle="modal" data-target=".exampleModal-modal-xl" type="button">Create CV</button>
+  </div>
+</nav>
+
+<!-- Modal -->
+<div class="modal fade exampleModal-modal-xl" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="myExtraLargeModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-dialog-centered modal-xl" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Build Your CV</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form action="#">
+          <div class="form-group">
+            <label for="">Full Name</label>
+            <input type="text" placeholder="Jonh Doe" id="fullName" class="form-control" required>
+          </div>
+          
+           <div class="form-group">
+            <label for="">Address</label>
+            <input type="text" placeholder="2276  Little Acres Lane, Wadena, MN, 56482" id="fullAddress" class="form-control" required>
+          </div>
+          
+           <div class="form-group">
+            <label for="">E-Mail</label>
+            <input type="text" placeholder="jonhdoe@gmail.com" id="contactEmail" class="form-control" required>
+          </div>
+          
+          <div class="form-group">
+            <label for="">Bio</label>
+            <textarea type="text" placeholder="About Me..." id="aboutMe" class="form-control" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="">Experience</label>
+            <div id="displayExperiences" class="text-center">
+              <p>There is no Experiences, Yet!</p>
+            </div>
+            <button type="button" class="btn btn-success btn-block" onclick="createExpElemetns();">Add an Experience</button>
+          </div>
+          
+          <div class="form-group">
+            <label for="">Education</label>
+            
+            <textarea type="text" placeholder="About Me..." id="myEducation" class="form-control" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="">Skills</label>
+            <textarea type="text" placeholder="About Me..." id="mySkills" class="form-control" required></textarea>
+          </div>
+          
+          <div class="form-group">
+            <label for="">Interests</label>
+            <textarea type="text" placeholder="About Me..." id="myInterests" class="form-control" required></textarea>
+          </div>
+        
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary" onclick="printCVData();">Save Curriculum</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container-fluid mt-5">
+  <div class="row">
+    <div class="col-md-12">
+      <div class="jumbotron">
+  <h1 class="display-4" id="printFullName">Full Name</h1>
+  <p class="lead" id="printFullAddress">Complete Address</p>
+  <p><a id="printContactEmail" href="#">Correo Electronico</a></p>
+</div>
+    <section id="bio">
+      <h2>Biography</h2>
+        <hr>
+      <div class="contentItems">
+        <p id="printBioData">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptates molestiae corrupti reiciendis earum numquam quibusdam explicabo, eligendi et maxime ea quas quaerat nostrum temporibus deleniti accusamus a excepturi obcaecati!
+        </p>
+      </div>
+      </section>
+      
+      <section id="exp">
+      <h2>EXPERIENCE</h2>
+        <hr>
+     <div class="contentItems" id="printExpData">
+       <div class="resume-item d-flex flex-column flex-md-row justify-content-between mb-5">
+          <div class="resume-content">
+            <h3 class="mb-0" id="printExpTitle">Senior Web Developer</h3>
+            <div class="subheading mb-3" id="printExpComp">Intelitec Solutions</div>
+            <p id="printExpACont">Bring to the table win-win survival strategies to ensure proactive domination. At the end of the day, going forward, a new normal that has evolved from generation X is on the runway heading towards a streamlined cloud solution. User generated content in real-time will have multiple touchpoints for offshoring.</p>
+          </div>
+          <div class="resume-date text-md-right">
+            <span class="text-primary" id="printExpDateStart">March 2013</span> - <span class="text-primary" id="printExpDateEnd">Present</span>
+          </div>
+        </div>
+      </div>
+      </section>
+      
+      <section id="edu">
+      <h2>EDUCATION</h2>
+        <hr>
+      <div class="contentItems">
+        <p id="printEduData">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptates molestiae corrupti reiciendis earum numquam quibusdam explicabo, eligendi et maxime ea quas quaerat nostrum temporibus deleniti accusamus a excepturi obcaecati!
+        </p>
+      </div>
+      </section>
+      
+      <section id="skill">
+      <h2>SKILLS</h2>
+        <hr>
+     <div class="contentItems">
+        <p id="printSkillsData">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptates molestiae corrupti reiciendis earum numquam quibusdam explicabo, eligendi et maxime ea quas quaerat nostrum temporibus deleniti accusamus a excepturi obcaecati!
+        </p>
+      </div>
+      </section>
+      
+      <section id="int">
+      <h2>INTERESTS</h2>
+        <hr>
+       <div class="contentItems">
+        <p id="printIntData">
+          Lorem, ipsum dolor sit amet consectetur adipisicing elit. Mollitia voluptates molestiae corrupti reiciendis earum numquam quibusdam explicabo, eligendi et maxime ea quas quaerat nostrum temporibus deleniti accusamus a excepturi obcaecati!
+        </p>
+      </div>
+      </section>
+      
+      <section id="aww">
+      <h2>AWARDS & CERTIFICATIONS</h2>
+      <h4><small><em>Web Developer</em></small></h4>
+        <hr>
+      <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Officiis deserunt dolorem obcaecati ipsum expedita quo quasi illum saepe quam animi alias quos aliquid esse odio, tempore unde enim molestiae sint!</p>
+      </section>
+      
+      <h3></h3>
+    </div>
+  </div>
+</div>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.2.1/js/bootstrap.min.js'></script>
+
+  
+
+    <script  src="js/index.js"></script>
+
+
+
+
+</body>
+
+</html>
