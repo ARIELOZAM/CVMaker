@@ -1,6 +1,4 @@
 function printCVData() {
-var myExps = ["title", "comp", "about", "date"];
-var myExpTitle = myExps["0"];
   var dataCV = {
     fullName:document.getElementById("fullName").value,
     fullAddress:document.getElementById("fullAddress").value,
@@ -58,7 +56,7 @@ function createExpElemetns() {
   var dateInfoEnd = document.createElement("input");
   var caracteres = "0123456789";
        var ramdomID = "";
-       for (i=0; i<3; i++) ramdomID +=caracteres.charAt(Math.floor(Math.random()*caracteres.length)); 
+       for (i=0; i<3; i++) ramdomID +=caracteres.charAt(Math.floor(Math.random()*caracteres.length));
   document.getElementById("displayExperiences").appendChild(formGroupExp);
   formGroupExp.setAttribute("class", "form-group");
    formGroupExp.setAttribute("id", ramdomID);
@@ -84,5 +82,5 @@ function createExpElemetns() {
   dateInfoEnd.setAttribute("class", "form-control");
   dateInfoEnd.setAttribute("type", "date");
   dateInfoEnd.setAttribute("id", "myExpDateEnd");
-  
+
     }
