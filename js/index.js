@@ -22,10 +22,7 @@ function printCVData() {
   document.getElementById("printContactEmail").setAttribute("href", "mailto:" + dataCV.contactEmail);
   document.getElementById("printContactEmail").innerHTML = dataCV.contactEmail;
   document.getElementById("printBioData").innerHTML = dataCV.aboutMe;
-  document.getElementById("printExpData").innerHTML = dataCV.myExperience;
-  document.getElementById("printExpTitle").innerHTML = dataCVMyExps.myExpTitle;
-  document.getElementById("printExpCorp").innerHTML = dataCVMyExps.myExpCorp;
-  document.getElementById("printExpCont").innerHTML = dataCVMyExps.myExpCont;
+
   document.getElementById("printExpDateStart").innerHTML = dataCVMyExps.myExpDateStart;
   document.getElementById("printExpDataEnd").innerHTML = dataCVMyExps.myExpDateEnd;
   document.getElementById("printEduData").innerHTML = dataCV.myEducation;
@@ -35,7 +32,10 @@ function printCVData() {
 }
 
 function addExperience() {
-
+  document.getElementById("printExpData").innerHTML = dataCV.myExperience;
+  document.getElementById("printExpTitle").innerHTML = dataCVMyExps.myExpTitle;
+  document.getElementById("printExpCorp").innerHTML = dataCVMyExps.myExpCorp;
+  document.getElementById("printExpCont").innerHTML = dataCVMyExps.myExpCont;
 }
 
 function addEducation () {
