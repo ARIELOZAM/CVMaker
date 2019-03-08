@@ -22,9 +22,6 @@ function printCVData() {
   document.getElementById("printContactEmail").setAttribute("href", "mailto:" + dataCV.contactEmail);
   document.getElementById("printContactEmail").innerHTML = dataCV.contactEmail;
   document.getElementById("printBioData").innerHTML = dataCV.aboutMe;
-
-  document.getElementById("printExpDateStart").innerHTML = dataCVMyExps.myExpDateStart;
-  document.getElementById("printExpDataEnd").innerHTML = dataCVMyExps.myExpDateEnd;
   document.getElementById("printEduData").innerHTML = dataCV.myEducation;
   document.getElementById("printSkillsData").innerHTML = dataCV.mySkills;
   document.getElementById("printIntData").innerHTML = dataCV.myInterests;
