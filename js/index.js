@@ -4,13 +4,6 @@ function printCVData() {
     fullAddress:document.getElementById("fullAddress").value,
     contactEmail:document.getElementById("contactEmail").value,
     aboutMe:document.getElementById("aboutMe").value,
-    myExperience: {
-    positionTitle:document.getElementById("myExpTitle").value,
-    companyName:document.getElementById("myExpCorp").value,
-    aboutWork:document.getElementById("myExpCont").value,
-    dateStart:document.getElementById("myExpDateStart").value,
-    dateEnd:document.getElementById("myExpDateEnd").value,
-  },
     myEducation:document.getElementById("myEducation").value,
     mySkills:document.getElementById("mySkills").value,
     myInterests:document.getElementById("myInterests").value
@@ -38,6 +31,15 @@ function printCVData() {
   document.getElementById("printEduData").innerHTML = dataCV.myEducation;
   document.getElementById("printSkillsData").innerHTML = dataCV.mySkills;
   document.getElementById("printIntData").innerHTML = dataCV.myInterests;
+  document.getElementById("")
+}
+
+function addExperience() {
+
+}
+
+function addEducation () {
+
 }
 
 function createExpElemetns() {
