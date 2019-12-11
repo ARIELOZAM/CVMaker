@@ -19,7 +19,7 @@
 <body>
 
   <?php
-    require "templates/header.php";
+    require_once ('templates/header.php');
   ?>
 
 <div class="container mt-5">
