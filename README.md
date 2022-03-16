@@ -1,7 +1,7 @@
-# CUVIT
-Curriculum Vitae - Curriculum Vitae Builder
+# CUVIM
+## Curriculum Vitae Maker
 
 ## What it is?
-It's a WebApp that let you build your CV in minutes.
+It's a WebApp that let you build your CV in couple of minutes, this will be printable or able to download.
 
-**Visit** [CV Builder]( https://arielloza.github.io/CVMaker)
+**Visit** [CUVIM BETA]( https://cuvim.netlify.app)
